@@ -35,12 +35,30 @@ public class QueryMethodTest {
 			}
 		}*/
 	
+	/*	@Test
+		public void testFindByTitle() {
+			//findbytitile(keyword) 사용
+			List<Board> boardList = boardRepo.findByTitle("Test title 10");
+			
+			log.info("searching result");
+			for(Board board : boardList) {
+				log.info("--->" + board.toString());
+			}
+		}*/
+	
+	/*	@Test
+		public void testFintByTitleContainigOrContentContaining() {
+			List<Board> boardList = boardRepo.findByTitleContainingOrContentContaining("17", "18");
+			
+			log.info("검색 결과");
+			for(Board board : boardList) {
+				log.info("--->" + board.toString());
+			}
+		}*/
 	@Test
-	public void testFindByTitle() {
-		//findbytitile(keyword) 사용
-		List<Board> boardList = boardRepo.findByTitle("Test title 10");
-		
-		log.info("searching result");
+	public void testFintByTitleContainigOrderBySeqDesc() {
+		List<Board> boardList = boardRepo.findByTitleContainingOrderBySeqDesc("18");
+		log.info("검색결과");
 		for(Board board : boardList) {
 			log.info("--->" + board.toString());
 		}
