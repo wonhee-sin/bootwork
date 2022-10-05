@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div id="container">
+		<h2>게시판 프로그램입니다.</h2>
+		<img th:src="@{/images/bear.jpg}">
+		<p>
+			<a th:href="@{board/getBoardList}">글 목록</a>&nbsp;&nbsp;&nbsp;
+			<a th:href="@{system/login}">로그인</a>&nbsp;&nbsp;&nbsp;
+			<a th:href="@{system/signup}">회원가입</a>
+		</p>
+	</div>
+</body>
+</html>

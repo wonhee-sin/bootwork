@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="setContent(content)">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/layout1.css}">
+</head>
+<body>
+
+<div class="header">
+	<h2>HEADER</h2>
+</div>
+
+<div class="content">
+	<th:block th:replace="${content}"></th:block>
+</div>
+
+<div class="footer">
+	<h2>FOOTER</h2>
+</div>
+
+</body>
+</th:block>
+</html>

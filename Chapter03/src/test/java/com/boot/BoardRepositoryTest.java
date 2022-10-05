@@ -20,11 +20,11 @@ public class BoardRepositoryTest {
 	@Autowired
 	private BoardRepository boardRepo;
 	
-/*	@Test
+	@Test
 	public void testInsertBoard() {
 		Board board = new Board();
 		board.setTitle("first post");
-		board.setWriter("tester");
+		//board.setWriter("tester");
 		board.setContent("it's well to resister");
 		board.setCreateDate(new Date());
 		board.setCnt(0L);
@@ -37,7 +37,7 @@ public class BoardRepositoryTest {
 	public void testGetBoard() {
 		Board board = boardRepo.findById(1L).get();
 		log.info(board.toString());
-	}*/
+	}
 	
 	//글 수정
 	/*@Test
@@ -52,10 +52,10 @@ public class BoardRepositoryTest {
 		boardRepo.save(board);
 	}*/
 	
-	@Test
-	public void testDeleteBoard() {
-		log.info("firts post delete");
-		
-		boardRepo.deleteById(1L);
-	}
+	/*	@Test
+		public void testDeleteBoard() {
+			log.info("firts post delete");
+			
+			boardRepo.deleteById(1L);
+		}*/
 }

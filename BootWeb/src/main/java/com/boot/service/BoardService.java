@@ -18,4 +18,6 @@ public interface BoardService {
 	void updateBoard(Board board);
 	
 	void deleteBoard(Board board);
+	
+	void updateCnt(Long seq);
 }

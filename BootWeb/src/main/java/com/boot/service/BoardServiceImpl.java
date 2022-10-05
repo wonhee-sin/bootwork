@@ -2,7 +2,10 @@ package com.boot.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.boot.domain.Board;
@@ -17,7 +20,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<Board> getBoardList() {
 		//findAll() 사용
-		return boardRepo.findAll();
+		return boardRepo.findAll(Sort.by(Sort.Direction.DESC, "seq"));
 	}
 
 	@Override
@@ -42,6 +45,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void deleteBoard(Board board) {
 		boardRepo.delete(board);
+		
+	}
+
+	@Transactional
+	@Override
+	public void updateCnt(Long seq) {
+		boardRepo.updateCnt(seq); 
 		
 	}
 
