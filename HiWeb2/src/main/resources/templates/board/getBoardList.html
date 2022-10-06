@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout1}">
+	  
+	<meta charset="UTF-8">
+	
+	<div layout:fragment="content" class="content">
+		<h2>게시글 페이지 입니다.</h2>
+		<table class="table my-3">
+		<thead>
+			<tr>
+				<th>번호</th><th>제목</th><th>작성자</th><th>작성일</th><th>조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="board : ${boardList}">
+				<td th:text="${board.seq}"></td>
+				<td><a th:text="${board.title}" th:href="@{/board/getBoard(seq=${board.seq})}"></a></td>
+				<td th:text="${board.member.name}"></td>
+				<td th:text="${#temporals.format(board.createDate, 'yyyy-MM-dd')}"></td>
+				<td th:text="${board.cnt}"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="5" align="center">
+					<a th:href="@{/board/insertBoard}"><button type="button" class="btn btn-info">글쓰기</button></a>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	</div>
+	
+
+</html>
