@@ -8,7 +8,7 @@
 	
 	<div layout:fragment="content" class="content">
 		<h2>글쓰기</h2>
-		<form th:action="@{/board/insertBoard}" method="post">
+		<form th:action="@{/board/insertBoard}" method="post"  enctype="multipart/form-data">
 		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 		<table class="table my-3">
 			<tr class="form-group">
@@ -23,6 +23,13 @@
 				<td>내용</td>
 				<td >
 					<textarea class="form-control" rows="8" name="content"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>파일 업로드</td>
+				<td >
+					<input type="file" name="uploadFile" class="form-control" id="title"
+			    		   placeholder="제목 입력">
 				</td>
 			</tr>
 			<tr>

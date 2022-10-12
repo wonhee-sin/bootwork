@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 	  layout:decorate="~{layouts/layout1}">
 	  
 	<meta charset="UTF-8">
@@ -31,9 +32,9 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<button type="submit" class="btn btn-success">수정</button>&nbsp;&nbsp;&nbsp;
+					<button type="submit" class="btn btn-success" th:if="${#authentication.getPrincipal().getMember().getUserid() == board.member.userid }">수정</button>&nbsp;&nbsp;&nbsp;
 					<a th:href="@{/board/getBoardList}"><button type="button" class="btn btn-primary">목록보기</button></a>&nbsp;&nbsp;&nbsp;
-					<a onclick="confirm ('삭제하시겠습니까?')" th:href="@{/board/deleteBoard(seq=${board.seq})}"><button type="button" class="btn btn-danger">삭제</button></a>
+					<a onclick="return confirm ('삭제하시겠습니까?')" th:href="@{/board/deleteBoard(seq=${board.seq})}" th:if="${#authentication.getPrincipal().getMember().getUserid() == 'admin' || #authentication.getPrincipal().getMember().getUserid() == board.member.userid }"><button type="button" class="btn btn-danger">삭제</button></a>
 				</td>
 			</tr>
 	</table>

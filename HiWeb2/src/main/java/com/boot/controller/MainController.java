@@ -11,4 +11,7 @@ public class MainController {
 		return "main";
 	}
 	
+	@GetMapping("/result")
+	public void result() {}
+	
 }

@@ -23,10 +23,14 @@
                     <a class="nav-link" th:href="@{/member/logout}" sec:authorize="isAuthenticated()"><font color="skyblue"><b>[<span sec:authentication="principal.member.name"></span>] </b></font>님 로그아웃</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" th:href="@{/member/userInfo}" sec:authorize="isAuthenticated()">나의 정보</a>
+                	<!-- #authentication.getPrincipal().getUsername() -->
+                    <a class="nav-link" th:href="@{/member/userInfoLogin}" sec:authorize="isAuthenticated()">나의 정보</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/board/getBoardList}" sec:authorize="isAuthenticated()">게시판</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/admin/adminPage}" sec:authorize="hasRole('ROLE_ADMIN')">관리자 페이지</a>
                 </li>
             </ul>
         </div>

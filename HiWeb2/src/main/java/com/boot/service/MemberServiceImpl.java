@@ -30,9 +30,28 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public Member userInfo(String userid) {
-		Member member = memberRepo.findById(userid).get();
+	public Member userInfo(Member member) {
+		String encPW = encoder.encode(member.getPassword());
+		member.setPassword(encPW);
+		
+		member.setRole(Role.ROLE_MEMBER);
+		member.setEnabled(true);
+		
+		memberRepo.save(member);
 		return null;
+	}
+
+	@Override
+	public void deleteAccount(Member member) {
+		memberRepo.delete(member);
+		
+	}
+
+	@Override
+	public boolean checkPassword(Member member, String checkPassword) {
+		String realPassword = member.getPassword();
+		boolean matches = encoder.matches(checkPassword, realPassword);
+		return matches;
 	}
 
 }

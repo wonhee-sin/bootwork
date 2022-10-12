@@ -6,5 +6,9 @@ public interface MemberService {
 
 	void signUp(Member member);
 	
-	Member userInfo(String userid);
+	Member userInfo(Member member);
+	
+	void deleteAccount(Member member);
+	
+	boolean checkPassword(Member member, String checkPassword);
 }
