@@ -38,7 +38,7 @@ public class MemberController {
 	@PostMapping("/signUp")
 	public String signUp(Member member) {
 		service.signUp(member);
-		return "/result";
+		return "redirect:/member/login";
 	}
 	
 	//정보 보기 로그인 페이지 이동

@@ -3,15 +3,18 @@ package com.boot.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller
-public class MainController {
 
+import lombok.RequiredArgsConstructor;
+
+@Controller
+@RequiredArgsConstructor
+public class MainController {
+	
+	//private final GuestbookService service;
+	
 	@GetMapping("/")
 	public String main() {
 		return "Main";
 	}
-	
-	@GetMapping("/result")
-	public void result() {}
 	
 }
