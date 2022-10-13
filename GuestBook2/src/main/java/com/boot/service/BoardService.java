@@ -15,6 +15,17 @@ public interface BoardService {
 	//게시글 목록 보기
 	PageResultDTO<BoardDTO, Object[]> getList(PageRequestDTO pageRequestDTO);
 	
+	//게시글 보기
+	BoardDTO get(Long bno);
+	
+	//게시글 삭제
+	void removeWithReplies(Long bno);
+	
+	//게시글 수정
+	void modify(BoardDTO boardDTO);
+	
+	
+	
 	
 	//dto에서 Entity로 변환
 	default Board dtoToEntity(BoardDTO dto) {

@@ -1,5 +1,6 @@
 package com.boot.repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -33,12 +34,19 @@ public class ReplyRepositoryTests {
 			});
 		}*/
 	
-	@Transactional
+	/*	@Transactional
+		@Test
+		public void readReply1() {
+			Optional<Reply> result = replyRepository.findById(1L);
+			Reply reply = result.get();
+			System.out.println(reply);
+			System.out.println(reply.getBoard());
+		}*/
+	
 	@Test
-	public void readReply1() {
-		Optional<Reply> result = replyRepository.findById(1L);
-		Reply reply = result.get();
-		System.out.println(reply);
-		System.out.println(reply.getBoard());
+	public void testListByBoard() {
+		List<Reply> replyList = replyRepository.getRepliesByBoardOrderByRno(Board.builder().bno(98L).build());
+		
+		replyList.forEach(reply -> System.out.println(reply));
 	}
 }
