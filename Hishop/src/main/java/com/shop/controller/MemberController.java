@@ -16,17 +16,17 @@ import com.shop.dto.MemberDTO;
 import com.shop.entity.Member;
 import com.shop.service.MemberService;
 
+import lombok.RequiredArgsConstructor;
 
 
+@RequiredArgsConstructor
 @RequestMapping("/members")
 @Controller
 public class MemberController {
 	
-	@Autowired
-	MemberService service;
+	private final MemberService service;
 	
-	@Autowired
-	PasswordEncoder passenc;
+	private final PasswordEncoder passenc;
 	
 	//로그인 폼 요청
 	@GetMapping("/login")
